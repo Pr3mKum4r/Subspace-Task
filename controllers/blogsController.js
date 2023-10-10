@@ -65,4 +65,3 @@ exports.getBlog = (req, res, next) => {
         });
 }
 
-

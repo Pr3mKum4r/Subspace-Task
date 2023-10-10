@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const AppError = require('./utils/appError.js');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const blogsRouter = require('./routes/blogsRouter.js');
@@ -26,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', blogsRouter);
 
 app.all('*', (req, res, next)=>{
-    next(new AppError(`cant find ${req.originalUrl} on this server!`), 404);
+    res.status(404).json({error: `cant find ${req.originalUrl} on this server!`});
 })
 
 module.exports = app;
