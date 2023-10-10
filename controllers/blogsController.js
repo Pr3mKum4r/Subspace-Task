@@ -35,6 +35,7 @@ exports.getBlogStats = (req, res, next) => {
             });
         })
         .catch(error => {
+            console.log(error);
             res.status(500).json({ error: 'Error fetching blog data' });
         });
 }
@@ -61,6 +62,7 @@ exports.getBlog = (req, res, next) => {
             res.json(searchResults);
         })
         .catch(error => {
+            console.log(error);
             res.status(500).json({ error: 'Error fetching blog data' });
         });
 }
